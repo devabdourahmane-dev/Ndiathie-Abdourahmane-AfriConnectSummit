@@ -1,6 +1,4 @@
-/* ========================================
-   VARIABLES CSS
-   ======================================== */
+/* VARIABLES CSS*/
 :root {
     --primary-color: #7c3aed;
     --secondary-color: #0f0f1a;
@@ -20,9 +18,7 @@
     --spacing: 80px;
 }
 
-/* ========================================
-   THÈME DARK
-   ======================================== */
+/* THÈME DARK */
 [data-theme="dark"] {
     --bg-color: #0f0f1a;
     --bg-secondary: #1a1a2e;
@@ -34,9 +30,7 @@
     --shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
-/* ========================================
-   RESET & BASE
-   ======================================== */
+/* RESET & BASE */
 * {
     margin: 0;
     padding: 0;
@@ -83,9 +77,7 @@ img {
     padding: 0 20px;
 }
 
-/* ========================================
-   BOUTONS
-   ======================================== */
+/* BOUTONS */
 .btn {
     display: inline-block;
     padding: 14px 32px;
@@ -122,9 +114,7 @@ img {
     color: var(--primary-color);
 }
 
-/* ========================================
-   NAVBAR
-   ======================================== */
+/*NAVBAR */
 .navbar {
     position: fixed;
     top: 0;
@@ -216,12 +206,14 @@ img {
     color: var(--primary-color);
 }
 
-/* ========================================
-   HERO — ACCUEIL
-   ======================================== */
+/* HERO — ACCUEIL */
 .hero {
     min-height: 100vh;
-    background: linear-gradient(135deg, #0f0f1a 0%, #1e1b4b 50%, #312e81 100%);
+    background: 
+        linear-gradient(135deg, 
+            rgba(15, 15, 26, 0.85) 0%, 
+            rgba(49, 46, 129, 0.75) 100%),
+        url('../images/hero (2).jpg') center/cover no-repeat fixed;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -297,15 +289,16 @@ img {
     margin-top: 4px;
 }
 
-/* ========================================
-   HERO INTERNE
-   ======================================== */
+/* HERO INTERNE */
 .hero-inner {
-    background: linear-gradient(135deg, #0f0f1a, #312e81);
+    background:
+        linear-gradient(135deg,
+            rgba(15, 15, 26, 0.90) 0%,
+            rgba(49, 46, 129, 0.80) 100%),
+        url('../images/hero (2).jpg') center/cover no-repeat;
     padding: 140px 20px 60px;
     text-align: center;
 }
-
 .hero-inner h1 {
     font-size: clamp(2rem, 4vw, 3.5rem);
     color: #ffffff;
@@ -341,9 +334,7 @@ img {
     opacity: 0.8;
 }
 
-/* ========================================
-   FOOTER
-   ======================================== */
+/*FOOTER */
 footer {
     background-color: var(--secondary-color);
     color: rgba(255, 255, 255, 0.8);
@@ -450,9 +441,7 @@ footer {
     transform: translateY(-4px);
 }
 
-/* ========================================
-   RESPONSIVE MOBILE — 768px
-   ======================================== */
+/* RESPONSIVE MOBILE — 768px */
 @media (max-width: 768px) {
 
     :root {
@@ -502,9 +491,7 @@ footer {
     }
 }
 
-/* ========================================
-   RESPONSIVE MOBILE — 375px
-   ======================================== */
+/*RESPONSIVE MOBILE — 375px */
 @media (max-width: 480px) {
 
     .hero-cta {
@@ -512,9 +499,7 @@ footer {
         align-items: center;
     }
 }
-/* ========================================
-   STATS — CHIFFRES CLÉS
-   ======================================== */
+/* STATS — CHIFFRES CLÉS */
 .stats {
     padding: var(--spacing) 0;
     background-color: var(--bg-secondary);
@@ -560,9 +545,7 @@ footer {
     margin-top: 8px;
 }
 
-/* ========================================
-   POURQUOI PARTICIPER
-   ======================================== */
+/* POURQUOI PARTICIPER */
 .why {
     padding: var(--spacing) 0;
 }
@@ -615,9 +598,7 @@ footer {
     font-size: 0.95rem;
 }
 
-/* ========================================
-   INTERVENANTS VEDETTES
-   ======================================== */
+/* INTERVENANTS VEDETTES */
 .speakers {
     padding: var(--spacing) 0;
     background-color: var(--bg-secondary);
@@ -670,9 +651,7 @@ footer {
     font-size: 0.9rem;
 }
 
-/* ========================================
-   SPONSORS
-   ======================================== */
+/* SPONSORS */
 .sponsors {
     padding: var(--spacing) 0;
 }
@@ -746,9 +725,7 @@ footer {
     color: var(--text-color);
 }
 
-/* ========================================
-   PROGRAMME — ONGLETS
-   ======================================== */
+/* PROGRAMME — ONGLETS */
 .programme {
     padding: var(--spacing) 0;
 }
@@ -823,9 +800,7 @@ footer {
     background-color: rgba(124, 58, 237, 0.06);
 }
 
-/* ========================================
-   THÉMATIQUES
-   ======================================== */
+/* THÉMATIQUES */
 .themes {
     padding: var(--spacing) 0;
     background-color: var(--bg-secondary);
@@ -875,9 +850,7 @@ footer {
     font-size: 0.9rem;
 }
 
-/* ========================================
-   INTERVENANTS — FILTRES + GRILLE
-   ======================================== */
+/* INTERVENANTS — FILTRES + GRILLE */
 .intervenants {
     padding: var(--spacing) 0;
 }
@@ -959,9 +932,7 @@ footer {
     font-size: 0.85rem;
 }
 
-/* ========================================
-   CONTACT — FORMULAIRE
-   ======================================== */
+/* CONTACT — FORMULAIRE */
 .contact-section {
     padding: var(--spacing) 0;
 }
@@ -1098,9 +1069,7 @@ footer {
     box-shadow: var(--shadow);
 }
 
-/* ========================================
-   FAQ — ACCORDÉON CSS PUR
-   ======================================== */
+/* FAQ — ACCORDÉON CSS PUR */
 .faq {
     padding: var(--spacing) 0;
     background-color: var(--bg-secondary);
@@ -1177,9 +1146,7 @@ footer {
     line-height: 1.7;
 }
 
-/* ========================================
-   RESPONSIVE — 768px
-   ======================================== */
+/* RESPONSIVE — 768px */
 @media (max-width: 768px) {
 
     .stats-grid {
@@ -1208,9 +1175,7 @@ footer {
     }
 }
 
-/* ========================================
-   RESPONSIVE — 375px
-   ======================================== */
+/* RESPONSIVE — 375px */
 @media (max-width: 480px) {
 
     .stats-grid {
