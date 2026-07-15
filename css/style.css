@@ -1194,3 +1194,21 @@ footer {
         flex-direction: column;
     }
 }
+/* ANIMATIONS FADE-IN AU SCROLL */
+
+/* Sans JS — sections visibles par défaut */
+.fade-section {
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+/* Avec JS — cachées au départ */
+.fade-section.animate {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+/* Visible quand JS ajoute .show */
+.fade-section.animate.show {
+    opacity: 1;
+    transform: translateY(0);
+}
