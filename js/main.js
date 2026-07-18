@@ -129,3 +129,115 @@ function updateCountdown() {
 
 setInterval(updateCountdown, 1000);
 updateCountdown();
+// ONGLETS PROGRAMME
+
+const tabBtns = document.querySelectorAll(".tab-btn");
+const tabContents = document.querySelectorAll(".tab-content");
+
+tabBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+        const day = btn.dataset.day;
+
+        // Enlever active partout
+        tabBtns.forEach(b => b.classList.remove("active"));
+        tabContents.forEach(c => c.classList.remove("active"));
+
+        // Ajouter active sur ce qui est cliqué
+        btn.classList.add("active");
+        document.getElementById(day).classList.add("active");
+    });
+});
+
+// COMPTEURS ANIMÉS AU SCROLL
+
+const counters = document.querySelectorAll(".counter");
+
+function startCounters() {
+    counters.forEach(counter => {
+        if (counter.dataset.animated) return;
+        counter.dataset.animated = "true";
+
+        const target = parseInt(counter.dataset.target);
+        let count = 0;
+
+        function updateCounter() {
+            const increment = Math.ceil(target / 100);
+
+            if (count < target) {
+                count += increment;
+                if (count > target) count = target;
+                counter.textContent = count;
+                setTimeout(updateCounter, 20);
+            } else {
+                counter.textContent = target;
+            }
+        }
+
+        updateCounter();
+    });
+}
+
+const statsSection = document.querySelector(".stats");
+
+if (statsSection) {
+    const statsObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                startCounters();
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    statsObserver.observe(statsSection);
+}
+
+// ANIMATIONS FADE-IN AU SCROLL
+
+const fadeSections = document.querySelectorAll(".fade-section");
+
+fadeSections.forEach(section => {
+    section.classList.add("animate");
+});
+
+const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+            fadeObserver.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.1
+});
+
+fadeSections.forEach(section => {
+    fadeObserver.observe(section);
+});
+// FILTRAGE DYNAMIQUE DES INTERVENANTS
+ 
+
+const filtreBtns = document.querySelectorAll(".filtre-btn");
+const intervenantCards = document.querySelectorAll(".intervenant-card");
+
+filtreBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+        const filtre = btn.dataset.filtre;
+
+        // Bouton actif
+        filtreBtns.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        // Afficher ou cacher les cards
+        intervenantCards.forEach(card => {
+            if (filtre === "tous" || card.dataset.filtre === filtre) {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+        });
+    });
+}); 
+ 
