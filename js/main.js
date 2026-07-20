@@ -240,4 +240,123 @@ filtreBtns.forEach(btn => {
         });
     });
 }); 
- 
+ // ============================================
+// VALIDATION FORMULAIRE DE CONTACT
+// ============================================
+
+const contactForm = document.getElementById("contactForm");
+
+if (contactForm) {
+    contactForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        // Récupérer les valeurs
+        const nom = document.getElementById("nom").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const telephone = document.getElementById("telephone").value.trim();
+        const participation = document.getElementById("participation").value;
+        const pays = document.getElementById("pays").value;
+        const message = document.getElementById("message").value.trim();
+
+        // Vider les erreurs précédentes
+        document.getElementById("nomError").textContent = "";
+        document.getElementById("emailError").textContent = "";
+        document.getElementById("telephoneError").textContent = "";
+        document.getElementById("participationError").textContent = "";
+        document.getElementById("paysError").textContent = "";
+        document.getElementById("messageError").textContent = "";
+
+        // Retirer les classes valid/invalid
+        document.querySelectorAll(".form-group input, .form-group select, .form-group textarea").forEach(el => {
+            el.classList.remove("valid", "invalid");
+        });
+
+        let isValid = true;
+
+        // Vérification nom
+        if (nom === "") {
+            document.getElementById("nomError").textContent = "Veuillez entrer votre nom complet";
+            document.getElementById("nom").classList.add("invalid");
+            isValid = false;
+        } else {
+            document.getElementById("nom").classList.add("valid");
+        }
+
+        // Vérification email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (email === "") {
+            document.getElementById("emailError").textContent = "Veuillez entrer votre email";
+            document.getElementById("email").classList.add("invalid");
+            isValid = false;
+        } else if (!emailRegex.test(email)) {
+            document.getElementById("emailError").textContent = "Format email invalide";
+            document.getElementById("email").classList.add("invalid");
+            isValid = false;
+        } else {
+            document.getElementById("email").classList.add("valid");
+        }
+
+        // Vérification téléphone — minimum 8 chiffres
+        const phoneRegex = /\d{8,}/;
+        if (telephone === "") {
+            document.getElementById("telephoneError").textContent = "Veuillez entrer votre téléphone";
+            document.getElementById("telephone").classList.add("invalid");
+            isValid = false;
+        } else if (!phoneRegex.test(telephone.replace(/\s/g, ""))) {
+            document.getElementById("telephoneError").textContent = "Minimum 8 chiffres requis";
+            document.getElementById("telephone").classList.add("invalid");
+            isValid = false;
+        } else {
+            document.getElementById("telephone").classList.add("valid");
+        }
+
+        // Vérification type de participation
+        if (participation === "") {
+            document.getElementById("participationError").textContent = "Veuillez choisir un type de participation";
+            document.getElementById("participation").classList.add("invalid");
+            isValid = false;
+        } else {
+            document.getElementById("participation").classList.add("valid");
+        }
+
+        // Vérification pays
+        if (pays === "") {
+            document.getElementById("paysError").textContent = "Veuillez sélectionner votre pays";
+            document.getElementById("pays").classList.add("invalid");
+            isValid = false;
+        } else {
+            document.getElementById("pays").classList.add("valid");
+        }
+
+        // Vérification message — minimum 20 caractères
+        if (message === "") {
+            document.getElementById("messageError").textContent = "Veuillez écrire un message";
+            document.getElementById("message").classList.add("invalid");
+            isValid = false;
+        } else if (message.length < 20) {
+            document.getElementById("messageError").textContent = "Le message doit contenir au moins 20 caractères";
+            document.getElementById("message").classList.add("invalid");
+            isValid = false;
+        } else {
+            document.getElementById("message").classList.add("valid");
+        }
+
+        // Si tout est valide — succès
+        if (isValid) {
+            contactForm.reset();
+
+            // Retirer toutes les classes valid
+            document.querySelectorAll(".form-group input, .form-group select, .form-group textarea").forEach(el => {
+                el.classList.remove("valid");
+            });
+
+            const successMsg = document.getElementById("successMessage");
+            successMsg.classList.add("show");
+
+            // Cacher après 5 secondes
+            setTimeout(() => {
+                successMsg.classList.remove("show");
+            }, 5000);
+        }
+    });
+}
