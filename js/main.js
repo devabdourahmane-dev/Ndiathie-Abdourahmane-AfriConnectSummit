@@ -17,7 +17,7 @@ if (localStorage.getItem("theme") === "dark") {
 if (themeToggle) {
     themeToggle.addEventListener("click", () => {
         const currentTheme = document.documentElement.getAttribute("data-theme");
-
+// Basculer le thème
         if (currentTheme === "dark") {
             document.documentElement.setAttribute("data-theme", "light");
             localStorage.setItem("theme", "light");
@@ -41,7 +41,7 @@ if (themeToggle) {
 
 
 const navbar = document.getElementById("navbar");
-
+// Ajouter ou retirer la classe "scrolled" selon la position du scroll
 window.addEventListener("scroll", () => {
     if (navbar && window.scrollY > 80) {
         navbar.classList.add("scrolled");
@@ -56,7 +56,7 @@ window.addEventListener("scroll", () => {
 
 const hamburger = document.getElementById("hamburger");
 const navLinks = document.getElementById("nav-links");
-
+// Toggle menu and icon
 if (hamburger) {
     hamburger.addEventListener("click", () => {
         navLinks.classList.toggle("open");
@@ -85,7 +85,7 @@ window.addEventListener("scroll", () => {
         backToTop.classList.remove("show");
     }
 });
-
+// Clic sur le bouton pour remonter en haut
 if (backToTop) {
     backToTop.addEventListener("click", () => {
         window.scrollTo({
@@ -126,7 +126,7 @@ function updateCountdown() {
         document.getElementById("seconds").textContent = seconds < 10 ? "0" + seconds : seconds;
     }
 }
-
+// Mettre à jour le compte à rebours toutes les secondes
 setInterval(updateCountdown, 1000);
 updateCountdown();
 // ONGLETS PROGRAMME
@@ -151,7 +151,7 @@ tabBtns.forEach(btn => {
 // COMPTEURS ANIMÉS AU SCROLL
 
 const counters = document.querySelectorAll(".counter");
-
+// Fonction pour animer les compteurs
 function startCounters() {
     counters.forEach(counter => {
         if (counter.dataset.animated) return;
@@ -176,7 +176,7 @@ function startCounters() {
         updateCounter();
     });
 }
-
+// Observer pour déclencher l'animation des compteurs lorsque la section est visible
 const statsSection = document.querySelector(".stats");
 
 if (statsSection) {
@@ -240,9 +240,8 @@ filtreBtns.forEach(btn => {
         });
     });
 }); 
- // ============================================
+ 
 // VALIDATION FORMULAIRE DE CONTACT
-// ============================================
 
 const contactForm = document.getElementById("contactForm");
 

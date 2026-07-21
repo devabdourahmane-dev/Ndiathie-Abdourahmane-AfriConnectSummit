@@ -963,7 +963,7 @@ footer {
     font-size: 1.8rem;
     margin-bottom: 30px;
 }
-
+/* FORMULAIRE */
 .form-group {
     margin-bottom: 22px;
 }
@@ -1007,7 +1007,7 @@ footer {
 .form-group textarea.invalid {
     border-color: #dc3545;
 }
-
+/* Messages d'erreur et de succès */
 .error-msg {
     display: block;
     color: #dc3545;
@@ -1173,6 +1173,13 @@ footer {
         width: 100%;
         text-align: center;
     }
+}
+.fi {
+    width: 1.2em;
+    height: 0.9em;
+    border-radius: 2px;
+    margin-right: 6px;
+    vertical-align: middle;
 }
 
 /* RESPONSIVE — 375px */
